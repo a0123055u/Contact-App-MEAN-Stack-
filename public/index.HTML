@@ -1,0 +1,61 @@
+<html ng-app="myApp">
+	<head>
+	<meta charset="utf-8">
+	<!-- Latest compiled and minified CSS -->
+<!--
+	<script src="lib/bootstrap.min.js"></script>
+	<link rel="stylesheet" src="lib/bootstrap.min.css" media="screen">
+-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+ integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+ crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" 
+integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<title>Contacts App</title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+	<script src="controllers/controller.js"></script>
+	</head>
+		<body>
+		<div class="container" ng-controller="appCtrl" class ="form-control">
+		<h3> Contacts App</h3>
+		<table class="table">
+		<thead>
+		<tr>
+		<th>Name:<input class ="form-control" ng-model="contact.name" type="text"/>
+		</th>
+		<th>Email id:<input class ="form-control" ng-model="contact.email" type="text"/></th>
+		<th>Contact Number<input class ="form-control"  ng-model="contact.number" type="text"/></th>
+		<th> <button class="btn btn-primary" data-ng-click="addCustomer()">Add Customer</button></th>
+		<th><button class ="btn btn-info" data-ng-click="updateContact()">Update</button></th>
+		
+		</tr>
+		
+		</thead>
+		<tbody>
+		<tr ng-repeat="contact in contactlist">
+			<td>{{contact.name}}</td>
+			<td> {{contact.email}}</td>
+			<td> {{contact.number}}</td>
+			<td> <button class=" btn btn-danger" data-ng-click="remove(contact._id)">Remove </button></td>
+			<td> <button class=" btn btn-warning" data-ng-click="edit(contact._id)">Edit </button></td>
+		</table>
+	
+		<div>
+		<h4> Preview</h4>
+		<table class="table1">
+		<thead>
+		<tr>
+		<th>{{"Name: "}}{{contact.name}}{{", Email id: "}}{{contact.email}}{{", Contact Number: "}}{{contact.number}}</th>
+		</tr>
+		</thead>
+		</table>
+		 
+		</div>
+		</div>
+		
+		
+		
+		</body>
+</html>
