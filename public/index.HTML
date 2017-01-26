@@ -18,6 +18,10 @@ integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En
 	<script src="controllers/controller.js"></script>
 	</head>
 		<body>
+		 <script src="lib/jquery-2.1.3.js"></script>        
+         <script src="lib/angular.js"></script>
+         
+         <script src="lib/bootstrap.min.js"></script>
 		<div class="container" ng-controller="appCtrl" class ="form-control">
 		<h3> Contacts App</h3>
 		<table class="table">
@@ -40,6 +44,7 @@ integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En
 			<td> {{contact.number}}</td>
 			<td> <button class=" btn btn-danger" data-ng-click="remove(contact._id)">Remove </button></td>
 			<td> <button class=" btn btn-warning" data-ng-click="edit(contact._id)">Edit </button></td>
+			</tbody>
 		</table>
 	
 		<div>
