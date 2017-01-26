@@ -1,19 +1,30 @@
 var express = require('express');
 var app= express();
+var MongoClient = require('mongodb').MongoClient,
+ format = require('util').format;
 var mongojs = require('mongojs');
 var db = mongojs('contactlist',['contactlist']);
 var bodyParser= require('body-parser');
 
 
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 7557
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || '7555';
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
  
+var url = 'mongodb://localhost:27017/contactlist';
 
+
+if(process.env.OPENSHIFT_MONGODB_DB_URL){
+  url = process.env.OPENSHIFT_MONGODB_DB_URL +'contactlist';
+}
 
 
 app.use(express.static(__dirname+ "/public"));
 //app.use(bodyParser.json());
 app.use(express.json());
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  console.log("Connected to Database");
 
 
 app.get('/contactlist',function(req,res){
@@ -85,7 +96,7 @@ app.put('/contaclist/:id',function(req,res){
                                     res.json(doc);
     });
 });
-
+});
 app.listen(server_port, server_ip_address, function () {
   console.log( "Listening on " + server_ip_address + ", port " + server_port )
 });    
