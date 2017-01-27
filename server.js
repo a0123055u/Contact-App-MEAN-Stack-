@@ -10,7 +10,7 @@ var bodyParser= require('body-parser');
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || '7555';
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
  
-var url = 'mongodb://localhost:27017/nodejstest';
+var url = 'mongodb://admin:qzwBzpIz7cDi@localhost:27017/nodejstest';
 
 
 if(process.env.OPENSHIFT_MONGODB_DB_URL){
