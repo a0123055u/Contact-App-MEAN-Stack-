@@ -1,7 +1,7 @@
 var express = require('express');
 var app= express();
 var mongojs = require('mongojs');
-var db = mongojs('user:password@ds135669.mlab.com:35669/contactlist',['contactlist']);
+var db = mongojs('user:test123@ds135669.mlab.com:35669/contactlist',['contactlist']);
 
 var bodyParser= require('body-parser');
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || '7555';
