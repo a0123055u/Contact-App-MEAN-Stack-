@@ -1,4 +1,11 @@
-"scripts": {
-  "start": "node server.js"
-},
-"main": "server.js"
+{
+  "name": "contact-app",
+  "version": "1.0.0",
+  "description": "A contact saving app based on nodejs and mongodb",
+  "author": "Thiruvalluvan murugesan",
+  "scripts": 
+  {
+     "start": "node server.js"
+  },
+  "main": "server.js"
+}
